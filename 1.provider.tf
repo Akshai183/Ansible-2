@@ -14,7 +14,7 @@ terraform {
     bucket         = "akshaik8s.xyz"
     key            = "ansible.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
+    #dynamodb_table = "terraform-locks"
     encrypt        = true
   }
 }
