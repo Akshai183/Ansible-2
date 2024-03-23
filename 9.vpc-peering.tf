@@ -3,7 +3,7 @@ data "aws_vpc" "default" {
 }
 
 data "aws_route_table" "default_rt" {
-  subnet_id = "subnet-08f48e0102ad3ef8b"
+  #subnet_id = "subnet-08f48e0102ad3ef8b"
   #If subnet_id giving errors use route table id as below
   route_table_id = data.aws_route_table.default_rt.id
 }
