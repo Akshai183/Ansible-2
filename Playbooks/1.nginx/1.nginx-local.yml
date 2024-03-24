@@ -53,7 +53,7 @@
       when: ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04"
 
 - name: Play For Copying Webserver Files
-  hosts: testserver01:testserver02:testserver03
+  hosts: all #testserver01:testserver02:testserver03
   become: yes
   become_user: root
   tasks:
