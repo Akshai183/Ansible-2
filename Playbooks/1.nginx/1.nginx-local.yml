@@ -17,6 +17,15 @@
       debug:
         msg: "System {{ inventory_hostname }} has sensitive variables {{ AWS_ACCOUNT }} and {{ OS_DIST_VERSION }}"
       no_log: true
+    - name: Debug message for style.css file
+      debug:
+        msg: "Copying style.css file to /var/www/html/"
+      when: ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04"
+    
+    - name: Debug message for scorekeeper.js file
+      debug:
+        msg: "Copying scorekeeper.js file to /var/www/html/"
+      when: ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04"
 
     - name: Perform apt update & Install basic packages
       apt:
