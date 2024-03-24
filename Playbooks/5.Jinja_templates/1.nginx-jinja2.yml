@@ -61,7 +61,7 @@
          tags:
          - js
        - name: Check Nginx Port Status
-         command: netstat -nltp | grep -i 80
+         shell: netstat -nltp | grep -i 80
 
        - name: Check that you can connect (GET) to a page and it returns a status 200
          ansible.builtin.uri:
