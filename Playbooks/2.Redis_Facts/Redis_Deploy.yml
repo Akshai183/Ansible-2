@@ -46,7 +46,7 @@
         dest: /etc/redis.conf
         owner: root
         group: root
-        mode: '0644'
+        mode: '0777'
       #when: redis_status.rc != 0
       notify:
       - Restart Redis
