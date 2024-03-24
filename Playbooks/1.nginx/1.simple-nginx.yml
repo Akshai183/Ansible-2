@@ -10,12 +10,14 @@
   tasks:
   - name: Perform apt update 
     shell: apt update
+    tags: [apt, update]
   - name: install Nginx
     shell: apt install nginx -y
+    tags: [nginx, install]
   - name: start Nginx Server
   # service: name=nginx state=started enabled=yes
     shell: service nginx start && systemctl enable nginx
-
+    tags: [nginx, start]
 - name: Install base tools
   hosts: pvt
   gather_facts: yes
