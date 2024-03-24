@@ -59,7 +59,7 @@
   tasks:
     - name: Copy html file
       copy:
-        src: /tmp/dockertest1/index.html
+        src: /tmp/nginxfiles/index.html
         dest: /var/www/html/index.nginx-debian.html
         owner: root
         group: root
@@ -68,7 +68,7 @@
 
     - name: Copy scorekeeper.js file
       copy:
-        src: /tmp/dockertest1/scorekeeper.js
+        src: /tmp/nginxfiles/scorekeeper.js
         dest: /var/www/html/scorekeeper.js
         owner: root
         group: root
@@ -77,7 +77,7 @@
 
     - name: Copy style.css file
       copy:
-        src: /tmp/dockertest1/style.css
+        src: /tmp/nginxfiles/style.css
         dest: /var/www/html/style.css
         owner: root
         group: root
