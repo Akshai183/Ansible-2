@@ -21,6 +21,7 @@
       get_url:
         url: "http://download.redis.io/releases/redis-6.2.5.tar.gz"
         dest: "/tmp/redis.tar.gz"
+      #delegate_to: localhost
       when: redis_status.rc != 0
 
     - name: Extract Redis source code
@@ -46,9 +47,12 @@
         owner: root
         group: root
         mode: '0644'
+      #when: redis_status.rc != 0
       notify:
-        - Restart Redis
-        - Backup Redis Conf File
+      - Restart Redis
+      - Backup Redis Conf File
+#      - Download Redis Backup Config File Flat
+#      - Download Redis Backup Config File Without Flat
 
     - name: Copy Redis systemd service config file
       copy:
@@ -57,9 +61,10 @@
         owner: root
         group: root
         mode: '0644'
+      #when: redis_status.rc != 0
       notify: 
-        - Restart Redis
-        - Backup Redis Conf File
+      - Restart Redis
+      - Backup Redis Conf File
 
     - name: Start Redis service
       systemd:
@@ -70,8 +75,8 @@
 
     - name: Checking Deligate Option 
       shell: hostname
-      delegate_to: localhost  # Fixed indentation
-
+      delegate_to: localhost #or 127.0.0.1
+      
   handlers:
     - name: Backup Redis Conf File
       shell: rm -rf /tmp/redis.conf_backup && cp /etc/redis.conf /tmp/redis.conf_backup
@@ -86,7 +91,6 @@
         src: /tmp/redis.conf_backup
         dest: /tmp/redis.conf_backup-{{ inventory_hostname }}
         flat: yes
-
     - name: Download Redis Backup Config File Without Flat
       fetch:
         src: /tmp/redis.conf_backup
