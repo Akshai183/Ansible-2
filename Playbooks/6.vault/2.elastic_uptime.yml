@@ -15,7 +15,7 @@
 
       - name: Copy the heartbeat.j2 Template to elastic destination folder.
         template: >
-           src=/root/Ansible/Playbooks/6.vault/vault_heartbeat.j2
+           src=/root/Ansible/Playbooks/6.vault/heartbeat.j2
            dest=/etc/heartbeat/heartbeat.yml
            owner=root
            group=root
