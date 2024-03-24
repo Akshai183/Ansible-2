@@ -21,7 +21,7 @@
       get_url:
         url: "http://download.redis.io/releases/redis-6.2.5.tar.gz"
         dest: "/tmp/redis.tar.gz"
-      #delegate_to: localhost
+      delegate_to: localhost
       when: redis_status.rc != 0
 
     - name: Extract Redis source code
