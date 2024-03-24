@@ -65,7 +65,7 @@
 
        - name: Check that you can connect (GET) to a page and it returns a status 200
          ansible.builtin.uri:
-           url: http://{{ ip_address }}
+           url: http://{{ inventory_hostname }}
            method: GET
 
     handlers:
