@@ -2,7 +2,7 @@
   - name: Installing Node Exporter
     hosts: pvt
     gather_facts: yes
-    become: yesse
+    become: yes
     become_user: root
     vars:
       use_handler: false
