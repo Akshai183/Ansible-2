@@ -27,7 +27,7 @@
 
        - name: Copy node_exporter.service file to destination folder.
          copy: >
-            src=/root/ansible-code/Playbooks/9.Node_Exporter/node_exporter.service
+            src=/root/Ansible/Playbooks/4.Node_Exporter/node_exporter.service
             dest=/lib/systemd/system/node_exporter.service
             owner=root
             group=root
