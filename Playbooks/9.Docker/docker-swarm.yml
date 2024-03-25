@@ -7,6 +7,7 @@
     - name: Install Docker on all docker_servers
       shell: curl https://get.docker.com | bash
       register: version
+    
     - name: Check Docker Version
       shell: docker version | grep -w Version | head -1
       when: version.rc !=0
@@ -14,6 +15,7 @@
         var: version
   tags:
     - install
+
 - name: Enable Docker Swarm
   hosts: docker_master
   become: yes
@@ -26,7 +28,7 @@
       shell: docker swarm join-token -q worker
       register: token
     - set_fact:
-        swarm_token: "{{ token.stdout }}"
+         swarm_token: "{{ token.stdout }}"
       no_log: true
     - debug:
         var: token.stdout
@@ -35,10 +37,10 @@
       shell: docker swarm join-token -q manager
       register: managertoken
       no_log: true
-    - set_fact: null
-      swarmmanager_token: "{{ managertoken.stdout }}"
-    - debug: null
-      var: swarmmanager_token.stdout
+    - set_fact: 
+         swarmmanager_token: "{{ managertoken.stdout }}"
+    - debug: 
+        var: swarmmanager_token.stdout
       no_log: true
     - name: Get Docker Master Private IP
       shell: curl http://169.254.169.254/latest/meta-data/local-ipv4/
@@ -49,15 +51,15 @@
         var: private_ip.stdout
     - name: add variables to dummy host 1
       add_host:
-        name: docker_master_node_token
+        name: "docker_master_node_token"
         shared_variable: "{{ swarm_token }}"
     - name: add variables to dummy host 3
       add_host:
-        name: docker master node ip
+        name: "docker master node ip"
         shared_variable: "{{ swarm_ip }}"
     - name: add variables to dummy host 4
       add_host:
-        name: docker_master_managernode_token
+        name: "docker_master_managernode_token"
         shared_variable: "{{ swarmmanager_token }}"
   tags:
     - swarm
