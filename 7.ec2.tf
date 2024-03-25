@@ -7,7 +7,7 @@
 
 resource "aws_instance" "webservers" {
   #count                       = local.new_environment == "production" ? 3 : 1
-  count = 3
+  count = 6
   #ami                         = data.aws_ami.my_ami.id
   ami                         = "ami-080e1f13689e07408"
   instance_type               = lookup(var.instance_type, local.new_environment)
