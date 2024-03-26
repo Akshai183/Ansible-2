@@ -33,8 +33,6 @@
           3739663531316230380a653839656338313830326435663465663031343139663336313665653837
           3063
     tasks:
-      - name: Reset MySQL Root User Password
-        shell
       - name: Create a new database with name 'superstar'
         community.mysql.mysql_db: #Module Part of mysql Collection
          name: superstar
