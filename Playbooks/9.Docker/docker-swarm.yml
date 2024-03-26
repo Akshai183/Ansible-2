@@ -14,7 +14,7 @@
           var: version
     tags:
      - install
-
+  
   - name: Enable Docker Swarm
     hosts: docker_master
     become: yes
