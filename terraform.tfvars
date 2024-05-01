@@ -7,13 +7,13 @@ private_subnet_cidrs = ["10.38.10.0/24", "10.38.20.0/24", "10.38.30.0/24"] #List
 azs                  = ["us-east-1a", "us-east-1b", "us-east-1c"]          #List
 environment          = "production"
 instance_type = {
-  development = "t2.small"
-  testing     = "t2.small"
-  production  = "t2.small"
+  development = "t2.micro"
+  testing     = "t2.micro"
+  production  = "t2.micro"
 }
 amis = {
-  us-east-1 = "ami-080e1f13689e07408" # Canonical, Ubuntu, 20.04 LTS, amd64 focal image
-  us-east-2 = "ami-0430580de6244e02e" # Canonical, Ubuntu, 20.04 LTS, amd64 focal image
+  us-east-1 = "ami-0e001c9271cf7f3b9" # Canonical, Ubuntu, 22.04 LTS, amd64 focal image
+  us-east-2 = "ami-04b70fa74e45c3917" # Canonical, Ubuntu, 24.04 LTS, amd64 focal image
 }
 projid    = "PHOENIX-123"
-imagename = "ami-080e1f13689e07408"
+imagename = "ami-04b70fa74e45c3917"
